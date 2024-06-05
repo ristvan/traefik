@@ -1,0 +1,10 @@
+services:
+    frontend:
+        image: ${IMAGE_REPOSITORY}/traefik:v3.0.0
+        command: --configFile=/etc/traefik/traefik.yml
+        ports:
+            - 20080:80
+            - 28080:8080
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./frontend/config/traefik.yml:/etc/traefik/traefik.yml
